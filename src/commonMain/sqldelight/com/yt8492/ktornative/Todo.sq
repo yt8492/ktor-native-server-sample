@@ -1,0 +1,25 @@
+CREATE TABLE todos (
+  id TEXT PRIMARY KEY NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  create_at TEXT NOT NULL,
+  update_at TEXT NOT NULL
+);
+
+selectAll:
+SELECT * FROM todos;
+
+select:
+SELECT * FROM todos
+WHERE id = ?;
+
+insert:
+INSERT INTO todos (id, title, content, create_at, update_at)
+VALUES (?, ?, ?, ?, ?);
+
+update:
+UPDATE todos SET title = ?, content = ?, update_at = ?
+WHERE id = ?;
+
+delete:
+DELETE FROM todos WHERE id = ?;
