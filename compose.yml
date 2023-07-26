@@ -4,7 +4,7 @@ services:
     container_name: todo-db
     restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - db-store:/var/lib/postgresql/data
       - ./postgres/init:/docker-entrypoint-initdb.d

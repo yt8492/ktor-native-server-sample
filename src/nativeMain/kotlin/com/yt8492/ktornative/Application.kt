@@ -4,9 +4,7 @@ import com.yt8492.ktornative.model.CreateTodoRequest
 import com.yt8492.ktornative.model.UpdateTodoRequest
 import com.yt8492.ktornative.repository.TodoRepository
 import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
-import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -14,9 +12,6 @@ import io.ktor.server.routing.*
 fun Application.module(
     todoRepository: TodoRepository,
 ) {
-    install(ContentNegotiation) {
-        json()
-    }
     routing {
         post("/todos") {
             val request = call.receive<CreateTodoRequest>()
